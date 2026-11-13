@@ -1,4 +1,4 @@
-import { ChevronRight, Folder, Search } from 'lucide-react';
+import { ChevronsDownUp, ChevronsUpDown, ChevronRight, Folder, Search } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { groupSnippets, isCopyTitle, parseTitle, relativeTime, shortTime, typeLabel } from '../group';
 import { useLayout, useSession, type SortMode } from '../store';
@@ -31,6 +31,7 @@ export function Explorer({ snippets, onOpen, onDuplicate, onToggleActive, onTras
 	const setStatusFilter = useLayout((state) => state.setStatusFilter);
 	const collapsed = useLayout((state) => state.collapsed);
 	const toggleGroup = useLayout((state) => state.toggleGroup);
+	const setGroupsCollapsed = useLayout((state) => state.setGroupsCollapsed);
 	const [limits, setLimits] = useState<Record<string, number>>({});
 	const [menu, setMenu] = useState<{ id: number; x: number; y: number } | null>(null);
 
@@ -158,6 +159,28 @@ export function Explorer({ snippets, onOpen, onDuplicate, onToggleActive, onTras
 							<Row key={`recent-${snippet.id}`} snippet={snippet} active={snippet.id === activeId} side={shortTime(snippet.modified_gmt)} indent={false} onOpen={onOpen} onMenu={setMenu} />
 						))}
 						<div className="mx-1.5 my-2 h-px bg-studio-line" />
+					</div>
+				)}
+				{groups.length > 0 && (
+					<div className="flex items-center justify-end gap-0.5 px-1 pb-1">
+						<button
+							type="button"
+							aria-label="Collapse all groups"
+							title="Collapse all"
+							onClick={() => setGroupsCollapsed(groups.map((group) => group.key), true)}
+							className="rounded p-1 text-studio-muted hover:bg-studio-row hover:text-white"
+						>
+							<ChevronsDownUp size={14} />
+						</button>
+						<button
+							type="button"
+							aria-label="Expand all groups"
+							title="Expand all"
+							onClick={() => setGroupsCollapsed(groups.map((group) => group.key), false)}
+							className="rounded p-1 text-studio-muted hover:bg-studio-row hover:text-white"
+						>
+							<ChevronsUpDown size={14} />
+						</button>
 					</div>
 				)}
 				{groups.map((group) => {

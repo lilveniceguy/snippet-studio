@@ -346,6 +346,10 @@
 	justify-content: space-between;
 }
 
+#snippet-studio-app .gap-0\.5 {
+	gap: 0.125rem;
+}
+
 #snippet-studio-app .gap-1 {
 	gap: 0.25rem;
 }

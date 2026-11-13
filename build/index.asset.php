@@ -5,5 +5,5 @@
 		'react-jsx-runtime',
 		'wp-api-fetch'
 	),
-	'version' => '8511732cb7b669551012'
+	'version' => '19cba40eebd3447eaab6'
 );

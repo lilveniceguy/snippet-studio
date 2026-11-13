@@ -23,6 +23,7 @@ interface LayoutState {
 	setTypeFilter: (type: string) => void;
 	setStatusFilter: (status: StatusFilter) => void;
 	toggleGroup: (key: string) => void;
+	setGroupsCollapsed: (keys: string[], collapsed: boolean) => void;
 }
 
 export const useLayout = create<LayoutState>()(
@@ -47,6 +48,14 @@ export const useLayout = create<LayoutState>()(
 				set((state) => ({
 					collapsed: { ...state.collapsed, [key]: !state.collapsed[key] },
 				})),
+			setGroupsCollapsed: (keys, collapsed) =>
+				set((state) => {
+					const next = { ...state.collapsed };
+					keys.forEach((key) => {
+						next[key] = collapsed;
+					});
+					return { collapsed: next };
+				}),
 		}),
 		{
 			name: 'snippet-studio-layout',

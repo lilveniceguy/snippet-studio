@@ -5,6 +5,7 @@
  * Version: 1.0.0
  * Requires at least: 6.5
  * Requires PHP: 8.0
+ * Requires Plugins: insert-php
  * Author: Jose Lopez
  * Author URI: https://joselopez.co
  * License: GPL-2.0-or-later
