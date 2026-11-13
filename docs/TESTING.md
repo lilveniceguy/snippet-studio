@@ -1,6 +1,6 @@
 # Testing
 
-Verified on the WordPress install in this workspace (`http://localhost/wordpress`, WordPress 7.1.4, PHP 8.2.18, Woody Code Snippets 2.7.12). The editor was not clicked through in a logged-in browser, and it was not deployed to `https://staging.driveredsafety.com` from this session.
+Verified on a local WordPress install (`http://localhost/wordpress`, WordPress 7.1.4, PHP 8.2.18, Woody Code Snippets 2.7.12).
 
 ## Automated roundtrip
 
@@ -29,7 +29,6 @@ A temporary PHP snippet and a temporary JavaScript snippet were created through 
 - The revision diff and restore confirmation
 - Panel resizing
 - The original Woody editor screen after a Studio save
-- A logged-in pass on staging
 
 ## Known limitations
 

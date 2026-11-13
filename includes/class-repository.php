@@ -616,10 +616,18 @@ class Repository {
 			return $guard;
 		}
 
+		$type   = $this->woody->raw_meta( $post_id, Woody_Adapter::META_TYPE );
+		$active = $this->woody->is_active( $post_id );
+		if ( is_array( $revision['meta'] ) && isset( $revision['meta'][ Woody_Adapter::META_ACTIVATE ] ) ) {
+			$active = '1' === (string) $revision['meta'][ Woody_Adapter::META_ACTIVATE ];
+		}
+		$syntax = $this->syntax_gate( (string) $revision['code'], '' === $type ? 'php' : $type, $active, true );
+		if ( is_wp_error( $syntax ) ) {
+			return $syntax;
+		}
+
 		$before = $this->capture( $post );
 		$this->revisions->record_before_restore( $post_id, $before );
-
-		$type  = $this->woody->raw_meta( $post_id, Woody_Adapter::META_TYPE );
 		$saved = $this->woody->save_post(
 			$post_id,
 			array(

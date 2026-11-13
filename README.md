@@ -15,7 +15,7 @@ Snippet Studio is a companion editor for [Woody Code Snippets](https://wordpress
 2. In WordPress admin, activate **Snippet Studio**.
 3. Open **Snippet Studio** in the admin menu, or the Snippet Studio link under Woody snippets.
 
-The `build/` directory already contains the production JavaScript and CSS. You do not need Node to install the plugin.
+A release zip includes the `build/` directory, so installing that zip does not require Node. A git checkout ignores `build/`; run the commands below before activating it.
 
 To rebuild the editor after changing `src/`:
 
@@ -54,6 +54,24 @@ Revisions live in `{prefix}snippet_studio_revisions`. The first successful edit 
 - `DISALLOW_FILE_EDIT` or `DISALLOW_FILE_MODS` makes the screen read-only.
 - PHP is checked with Woody's tokenizer (`WINP_Code_Validator::check_syntax`) and is not executed.
 - Active PHP with a syntax error is rejected. Inactive PHP can be saved after confirmation.
+- Restoring a revision into an active PHP or universal snippet is rejected when that revision's code has a syntax error. The current snippet is left unchanged.
 - A save is rejected when the snippet changed after it was opened, unless you explicitly overwrite it.
 
 See `docs/WOODY-COMPATIBILITY.md` and `docs/TESTING.md`.
+
+## License
+
+Snippet Studio is free software, licensed under the GNU General Public License v2.0 or later. See the plugin header in `snippet-studio.php`.
+
+The editor screen is built with these third-party libraries:
+
+| Library | License |
+|---|---|
+| React and React DOM, as shipped by WordPress | MIT |
+| CodeMirror 6 | MIT |
+| Zustand | MIT |
+| TanStack Query | MIT |
+| Lucide | ISC |
+| Tailwind CSS | MIT |
+
+WordPress itself is GPL-2.0-or-later. Those libraries are not modified copies of Woody Code Snippets, and this plugin does not include Woody's code.
