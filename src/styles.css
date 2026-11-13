@@ -1,0 +1,149 @@
+@tailwind components;
+@tailwind utilities;
+
+#snippet-studio-app {
+	height: 100%;
+	min-height: 0;
+	background: #1b1c21;
+	color: #e6e7ea;
+	font-family: "Segoe UI", system-ui, sans-serif;
+	font-size: 13px;
+}
+
+#snippet-studio-app,
+#snippet-studio-app * {
+	box-sizing: border-box;
+}
+
+#snippet-studio-app button,
+#snippet-studio-app input,
+#snippet-studio-app select,
+#snippet-studio-app textarea {
+	font: inherit;
+	color: inherit;
+	margin: 0;
+	box-shadow: none;
+	min-height: 0;
+	max-width: none;
+	line-height: normal;
+}
+
+/* The admin stylesheet and the browser's own button face are light.
+   Utilities that set a background still win, because they include a class. */
+#snippet-studio-app button {
+	background-color: transparent;
+	border-width: 0;
+	cursor: pointer;
+}
+
+#snippet-studio-app button.border {
+	border-style: solid;
+}
+
+#snippet-studio-app input,
+#snippet-studio-app textarea,
+#snippet-studio-app select {
+	background-color: #16171b;
+	color: #e6e7ea;
+	border-color: #33363f;
+}
+
+#snippet-studio-app select {
+	background-image: none;
+	-webkit-appearance: auto;
+	appearance: auto;
+}
+
+#snippet-studio-app select option {
+	background-color: #1f2026;
+	color: #e6e7ea;
+}
+
+#snippet-studio-app :focus-visible {
+	outline: 2px solid #8fb0ff;
+	outline-offset: 1px;
+}
+
+#snippet-studio-app .cm-editor :focus-visible,
+#snippet-studio-app .cm-editor.cm-focused {
+	outline: none;
+}
+
+#snippet-studio-app .sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+#snippet-studio-app .cm-editor {
+	height: 100%;
+	background: #16171b;
+}
+
+#snippet-studio-app .cm-scroller {
+	font-family: "Cascadia Code", Consolas, ui-monospace, monospace;
+	line-height: 21px;
+}
+
+#snippet-studio-app .cm-gutters {
+	background: #16171b;
+	color: #7b7f8a;
+	border-right: 0;
+}
+
+#snippet-studio-app .cm-activeLineGutter,
+#snippet-studio-app .cm-activeLine {
+	background: #1f2230;
+}
+
+#snippet-studio-app .cm-cursor,
+#snippet-studio-app .cm-dropCursor {
+	border-left-color: #ffffff;
+}
+
+#snippet-studio-app .cm-panels {
+	background: #202127;
+	color: #e6e7ea;
+	border-color: #2c2e36;
+}
+
+#snippet-studio-app .cm-panels input,
+#snippet-studio-app .cm-panels button,
+#snippet-studio-app .cm-textfield {
+	background: #16171b;
+	color: #e6e7ea;
+	border: 1px solid #33363f;
+	border-radius: 4px;
+}
+
+#snippet-studio-app .cm-panel.cm-search label {
+	color: #c9cbd1;
+}
+
+#snippet-studio-app .cm-mergeView {
+	height: 100%;
+}
+
+#snippet-studio-app .cm-mergeView .cm-editor {
+	height: 100%;
+}
+
+#snippet-studio-app ::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+#snippet-studio-app ::-webkit-scrollbar-thumb {
+	background: #3a3d47;
+	border-radius: 8px;
+}
+
+#snippet-studio-app ::-webkit-scrollbar-track {
+	background: transparent;
+}
